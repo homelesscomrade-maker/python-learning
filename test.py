@@ -88,8 +88,10 @@ while carry:
                 break
             else:
                 print("Некорректно")
+                print_menu()
         except ValueError:
             print("Некорректно")
+            print_menu()
     if carry:
         with open("users.json", "r") as file:
             users = json.load(file)
