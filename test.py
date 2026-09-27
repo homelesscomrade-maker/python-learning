@@ -96,7 +96,7 @@ while carry:
         try:
             with open("users.json", "r") as file:
                 users = json.load(file)
-        except FileNotFoundError:
+        except (FileNotFoundError, json.JSONDecodeError):
             users = []
             with open("users.json", "w") as file:
                 json.dump(users, file)
