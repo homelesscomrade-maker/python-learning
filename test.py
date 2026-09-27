@@ -93,8 +93,13 @@ while carry:
             print("Некорректно")
             print_menu()
     if carry:
-        with open("users.json", "r") as file:
-            users = json.load(file)
+        try:
+            with open("users.json", "r") as file:
+                users = json.load(file)
+        except FileNotFoundError:
+            users = []
+            with open("users.json", "w") as file:
+                json.dump(users, file)
         if act == 1:
             show_users(users)
         elif act == 2:
